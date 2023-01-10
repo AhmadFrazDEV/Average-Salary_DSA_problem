@@ -1,0 +1,44 @@
+class Solution {
+public:
+    double average(vector<int>& salary) {
+        int size = salary.size();
+        double sum = 0.0;
+        int count = 0;
+        int Max = Maximium(salary);
+        int Min = Minium(salary);
+        for(int i=0 ; i<size ; i++)
+        {
+            
+            if(salary[i] == Max || salary[i] == Min)
+            {
+                continue;
+            }
+            else
+            {
+                sum = sum + salary[i];
+                count++;
+            }
+        }
+        return sum / count;
+    }
+    
+    int Maximium(vector<int> salary)
+{
+     for(int i = 0;i < salary.size(); i++) {
+    if(salary[0] < salary[i])
+      salary[0] = salary[i];
+  }
+        return salary[0];
+
+}
+int Minium(vector<int> salary)
+{    
+   for(int i = 0;i < salary.size(); i++) {
+    if(salary[0] > salary[i])
+      salary[0] = salary[i];
+  }
+    cout << "MIN sal:" <<salary[0];
+        return salary[0];   
+}
+};
+
